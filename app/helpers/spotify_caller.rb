@@ -16,7 +16,9 @@ module SpotifyCaller
     )
   end
 
-  def self.featured_playlist_populate
-    HTTParty.get("https://api.spotify.com/v1/browse/featured-playlists?country=US")
+  def self.featured_playlists_populate(token)
+    HTTParty.get("https://api.spotify.com/v1/browse/featured-playlists?country=US",
+      :headers => { "Authorization" => "Bearer " + token }
+    )
   end
 end
