@@ -6,7 +6,7 @@
       <div class="track-photo col-md-2">
         <%= image_tag(@track['album']['images'][0]['url']) %>
       </div>
-      <div class="track-details col-md-8">
+      <div class="track-details col-md-4">
         <div class="row">
           Title: <%= @track['name'] %>
         </div>
@@ -16,8 +16,13 @@
         <div class="row">
           From the Album: <%= @track['album']['name'] %>
         </div>
+      </div>
+      <div class="track-analytics col-md-4">
         <div class="row">
           Popularity: <%= @track['popularity'] %>
+        </div>
+        <div class="row">
+          Number of playlists containing this song
         </div>
       </div>
     </div>
