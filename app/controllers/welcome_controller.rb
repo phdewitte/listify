@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
     token = login_response['access_token']
 
     playlists_response = SpotifyCaller.featured_playlists_populate(token)
-    @playlists = playlists_response['playlists']
+    @playlists = playlists_response['playlists']['items']
   end
 end

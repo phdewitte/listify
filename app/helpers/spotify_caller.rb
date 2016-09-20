@@ -8,8 +8,6 @@ module SpotifyCaller
   end
 
   def self.spotify_authorize
-    p SpotifyCaller.client_id
-    p SpotifyCaller.client_secret
     encoded_client = Base64.encode64(SpotifyCaller.client_id + ":" + SpotifyCaller.client_secret).delete("\n")
 
     HTTParty.post("https://accounts.spotify.com/api/token",
@@ -19,7 +17,7 @@ module SpotifyCaller
   end
 
   def self.featured_playlists_populate(token)
-    HTTParty.get("https://api.spotify.com/v1/browse/featured-playlists?country=US",
+    HTTParty.get("https://api.spotify.com/v1/browse/featured-playlists?country=US&limit=50",
       :headers => { "Authorization" => "Bearer " + token }
     )
   end
