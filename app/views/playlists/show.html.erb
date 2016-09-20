@@ -1,0 +1,8 @@
+<div class="container">
+  <h1><%= @playlist['title'] %></h1>
+  <ul>
+  <% @playlist.each do |track| %>
+    <%= track %>
+  </ul>
+  <% end %>
+</div>

@@ -21,4 +21,10 @@ module SpotifyCaller
       :headers => { "Authorization" => "Bearer " + token }
     )
   end
+
+  def self.get_individual_playlist(token, user_id, playlist_id)
+    HTTParty.get("https://api.spotify.com/v1/users/#{user_id}/playlists/#{playlist_id}/tracks",
+      :headers => { "Authorization" => "Bearer " + token }
+    )
+  end
 end

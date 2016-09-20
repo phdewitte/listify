@@ -1,7 +1,9 @@
 <div class="container">
   <% @playlists.each do |playlist| %>
     <div class="card">
-      <%= image_tag(playlist['images'][0]['url'], class: "img-fluid") %>
+      <%= link_to image_tag(playlist['images'][0]['url'], class: "img-fluid"),
+       playlist_path(playlist['id'], params: {user_id: playlist['owner']['id']} )
+      %>
       <div class="card-block">
         <%= playlist['name'] %>
         <div class="row">
