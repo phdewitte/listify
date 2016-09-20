@@ -1,0 +1,15 @@
+<div class="container">
+  <% @playlists.each do |playlist| %>
+    <div class="card">
+      <%= image_tag(playlist['images'][0]['url'], class: "img-fluid") %>
+      <div class="card-block">
+        <%= playlist['name'] %>
+        <div class="row">
+          Number of Tracks: <%= playlist['tracks']['total'] %>
+        </div>
+        <%= link_to(playlist['tracks']['href']) %>
+        <%= playlist %>
+      </div>
+    </div>
+</div>
+<% end %>
