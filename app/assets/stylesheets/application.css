@@ -34,5 +34,9 @@ img {
 }
 
 .track-details {
-  margin-left: 20%;
+  margin-left: 15%;
+}
+
+.track-details * {
+  margin: 1%;
 }
