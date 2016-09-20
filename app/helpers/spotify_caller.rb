@@ -8,7 +8,8 @@ module SpotifyCaller
   end
 
   def self.spotify_authorize
-    p ENV["SPOTIFY_CLIENT_SECRET"]
+    p SpotifyCaller.client_id
+    p SpotifyCaller.client_secret
     encoded_client = Base64.encode64(SpotifyCaller.client_id + ":" + SpotifyCaller.client_secret).delete("\n")
 
     HTTParty.post("https://accounts.spotify.com/api/token",
