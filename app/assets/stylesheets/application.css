@@ -31,12 +31,26 @@ img {
 
 .track-photo {
   float: left;
+  position: relative;
 }
 
 .track-details {
+  position: absolute;
   margin-left: 15%;
+  width: 25%;
 }
 
 .track-details * {
-  margin: 1%;
+  margin: 2%;
+}
+
+.track-analytics {
+  position: absolute;
+  display: inline-block;
+  width: 25%;
+  margin-left: 33%;
+}
+
+.track-analytics * {
+  margin: 2%;
 }
