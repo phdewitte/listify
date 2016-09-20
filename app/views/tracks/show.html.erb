@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <h1><%= @track['name'] %></h1>
+
+  <ul>
+    <div class="row track-panel z-depth-1">
+      <div class="track-photo col-md-2">
+        <%= image_tag(@track['album']['images'][0]['url']) %>
+      </div>
+      <div class="track-details col-md-8">
+        <div class="row">
+          Title: <%= @track['name'] %>
+        </div>
+        <div class="row">
+          Artist: <%= @track['artists'][0]['name'] %>
+        </div>
+        <div class="row">
+          From the Album: <%= @track['album']['name'] %>
+        </div>
+        <div class="row">
+          Popularity: <%= @track['popularity'] %>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>

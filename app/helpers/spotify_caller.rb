@@ -27,4 +27,8 @@ module SpotifyCaller
       :headers => { "Authorization" => "Bearer " + token }
     )
   end
+
+  def self.get_individual_track(track_id)
+    HTTParty.get("https://api.spotify.com/v1/tracks/#{track_id}")
+  end
 end
