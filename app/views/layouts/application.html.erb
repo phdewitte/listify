@@ -5,8 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
+
 </head>
 <body>
+  <nav class="navbar navbar-dark bg-primary">
+    <h1 class="navbar-brand">Listify</h1>
+  </nav>
 
 <%= yield %>
 

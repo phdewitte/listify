@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/welcome', to: 'welcome#index'
+  get '/', to: 'playlists#index'
 
   resources :playlists
 end
