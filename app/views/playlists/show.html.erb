@@ -1,8 +1,27 @@
-<div class="container">
-  <h1><%= @playlist['title'] %></h1>
+<div class="container-fluid">
+  <h1><%= @playlist_title %></h1>
+
   <ul>
-  <% @playlist.each do |track| %>
-    <%= track %>
+  <% @playlist.each do |track_object| %>
+    <div class="row track-panel z-depth-1">
+      <div class="track-photo col-md-2">
+        <%= image_tag(track_object['track']['album']['images'][0]['url']) %>
+      </div>
+      <div class="track-details col-md-8">
+        <div class="row">
+          Title: <%= track_object['track']['name'] %>
+        </div>
+        <div class="row">
+          Artist: <%= track_object['track']['artists'][0]['name'] %>
+        </div>
+        <div class="row">
+          From the Album: <%= track_object['track']['album']['name'] %>
+        </div>
+        <div class="row">
+          Added To This Playlist: <%= time_ago_in_words(track_object['added_at']) + " ago" %>
+        </div>
+      </div>
+    </div>
   </ul>
   <% end %>
 </div>

@@ -7,6 +7,17 @@ img {
   max-height: 10em;
 }
 
-.card {
+.track-panel {
  display: inline-block;
+ width: 95%;
+ margin: 0.5% 2.5% 0.5% 2.5%;
+ padding: 1%;
+}
+
+.track-photo {
+  float: left;
+}
+
+.track-details {
+  margin-left: 20%;
 }
