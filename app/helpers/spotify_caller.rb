@@ -31,4 +31,8 @@ module SpotifyCaller
   def self.get_individual_track(track_id)
     HTTParty.get("https://api.spotify.com/v1/tracks/#{track_id}")
   end
+
+  def self.get_album(album_id)
+    HTTParty.get("https://api.spotify.com/v1/albums/#{album_id}")
+  end
 end
