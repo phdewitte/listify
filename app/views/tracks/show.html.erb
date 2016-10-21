@@ -4,7 +4,7 @@
   <ul>
     <div class="row track-panel z-depth-1">
       <div class="track-photo col-md-2">
-        <%= image_tag(@track['album']['images'][0]['url']) %>
+        <%= link_to image_tag(@track['album']['images'][0]['url']), album_path(@track['album']['id']) %>
       </div>
       <div class="track-details col-md-4">
         <div class="row">
