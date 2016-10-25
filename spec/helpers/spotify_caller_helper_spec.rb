@@ -32,5 +32,15 @@ RSpec.describe SpotifyCaller, type: :helper do
     it 'responds to the auth call with a 200 OK' do
       expect(SpotifyCaller.spotify_authorize.response).to be_a NET::HTTPOK
     end
+
+    it 'grants an authorization token' do
+      expect(SpotifyCaller.spotify_authorize.parsed_response['access_token']).to be_a String
+    end
+
+    it 'grants an authorization bearer type' do
+      expect(SpotifyCaller.spotify_authorize.parsed_response['token_type']).to eq 'Bearer'
+    end
   end
+
+
 end
