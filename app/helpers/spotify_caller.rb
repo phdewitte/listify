@@ -7,16 +7,18 @@ module SpotifyCaller
     Rails.application.secrets.spotify_client_secret
   end
 
-  def self.spotify_authorize
-    encoded_client = Base64.encode64(SpotifyCaller.client_id + ":" + SpotifyCaller.client_secret).delete("\n")
+  def self.encoded_client
+    Base64.encode64(SpotifyCaller.client_id + ":" + SpotifyCaller.client_secret).delete("\n")
+  end
 
+  def self.spotify_authorize
     HTTParty.post("https://accounts.spotify.com/api/token",
       :query => { :grant_type => "client_credentials" },
-      :headers => { "Authorization" => "Basic " + encoded_client }
+      :headers => { "Authorization" => "Basic " + self.encoded_client }
     )
   end
 
-  def self.featured_playlists_populate(token)
+  def self.get_featured_playlists(token)
     HTTParty.get("https://api.spotify.com/v1/browse/featured-playlists?country=US&limit=50",
       :headers => { "Authorization" => "Bearer " + token }
     )

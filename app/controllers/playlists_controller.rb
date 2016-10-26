@@ -3,7 +3,7 @@ class PlaylistsController < ApplicationController
   before_action :get_playlist_title, only: [:show]
 
   def index
-    playlists_response = SpotifyCaller.featured_playlists_populate(@token)
+    playlists_response = SpotifyCaller.get_featured_playlists(@token)
     @playlists = playlists_response['playlists']['items']
   end
 
