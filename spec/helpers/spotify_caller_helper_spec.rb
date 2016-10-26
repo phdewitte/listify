@@ -29,9 +29,9 @@ RSpec.describe SpotifyCaller, type: :helper do
       expect(SpotifyCaller.spotify_authorize).to be_an HTTParty::Response
     end
 
-    it 'responds to the auth call with a 200 OK' do
-      expect(SpotifyCaller.spotify_authorize.response).to be_a NET::HTTPOK
-    end
+    # it 'responds to the auth call with a 200 OK' do
+    #   expect(SpotifyCaller.spotify_authorize.response).to have_http_status 200
+    # end
 
     it 'grants an authorization token' do
       expect(SpotifyCaller.spotify_authorize.parsed_response['access_token']).to be_a String
@@ -40,6 +40,24 @@ RSpec.describe SpotifyCaller, type: :helper do
     it 'grants an authorization bearer type' do
       expect(SpotifyCaller.spotify_authorize.parsed_response['token_type']).to eq 'Bearer'
     end
+  end
+
+  describe '#get_featured_playlists' do
+    before :each do
+      @token = SpotifyCaller.spotify_authorize.parsed_response['access_token']
+    end
+
+    it 'makes a successful call to the Spotify API' do
+      expect(SpotifyCaller.get_featured_playlists(@token)).to be_success
+    end
+
+    it 'receives an HTTParty reponse' do
+      expect(SpotifyCaller.get_featured_playlists(@token)).to be_an HTTParty::Response
+    end
+
+    # it 'responds to the request with a 200 OK' do
+    #   expect(SpotifyCaller.get_featured_playlists(@token).response).to be_a NET::HTTPOK
+    # end
   end
 
 
